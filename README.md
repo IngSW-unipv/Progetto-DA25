@@ -36,7 +36,7 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 
 1. **Clona il repository**:
    ```bash
-   git clone https://github.com/tuo-username/TogetherTicket.git
+   git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
 2. **Configura il database**:
    - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql` e poi `InsertData.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.

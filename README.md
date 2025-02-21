@@ -1,0 +1,89 @@
+# TogetherTicket
+
+**TogetherTicket** è un'applicazione web che consente agli utenti di acquistare biglietti per eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
+
+## Funzionalità principali
+**Utenti**:
+- **Registrazione e login**: Gli utenti possono creare un account e accedere al sistema.
+- **Visualizzazione eventi**: Gli utenti possono visualizzare gli eventi disponibili e acquistare biglietti.
+- **Creazione e gestione gruppi**: Gli utenti possono creare nuovi gruppi per un evento o unirsi a gruppi esistenti.
+- **Chat di gruppo**: Ogni gruppo ha una chat in cui i membri possono comunicare.
+- **Bacheca personale**: Ogni utente ha accesso alla propria bacheca, dove può vedere i gruppi a cui partecipa e interagire con essi.
+
+**Admin**:
+- **Login**: Gli admin possono accedere attraverso le credenziali fornite dagli sviluppatori.
+- **Aggiunta/Rimozione Evento**: Gli admin possono creare nuovi eventi nel sistema e togliere eventi ormai passati
+
+
+
+## Tecnologie utilizzate
+
+- **Java**: Backend per la gestione delle operazioni, come l'autenticazione, la gestione degli eventi e dei gruppi.
+- **HTML/CSS**: Frontend per l'interfaccia utente.
+- **MySQL**: Database per la memorizzazione di utenti, eventi, gruppi e chat.
+- **Eclipse**: IDE utilizzato per lo sviluppo del progetto.
+
+## Prerequisiti
+
+Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
+
+- **Java Development Kit (JDK) 11 o superiore**: Assicurati di avere Java installato. Puoi scaricarlo da [qui](https://adoptopenjdk.net/).
+- **MySQL**: Per la gestione del database. Puoi scaricarlo da [qui](https://dev.mysql.com/downloads/installer/).
+- **Eclipse IDE**: Un IDE per lo sviluppo Java. Puoi scaricarlo da [qui](https://www.eclipse.org/downloads/).
+- **Maven**: Strumento di gestione delle dipendenze. Puoi installarlo da [qui](https://maven.apache.org/).
+
+## Configurazione del progetto
+
+1. **Clona il repository**:
+   ```bash
+   git clone https://github.com/tuo-username/TogetherTicket.git
+
+2. **Configura il database**:
+   - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql` e poi `InsertData.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
+
+4. **Importa il progetto in Eclipse**:
+   - Apri Eclipse e seleziona `File > Import > Existing Maven Projects`.
+   - Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
+   - Eclipse importerà automaticamente il progetto e le dipendenze tramite Maven.
+
+5. **Configurazione del server Apache Tomcat**:
+   - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat (versione 9 o successiva).
+   - Dopo aver aggiunto Tomcat, clicca su `Run > Run on Server` per eseguire l'applicazione.
+
+6. **Avvio dell'applicazione**:
+   - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run`.
+   - Accedi all'applicazione nel browser visitando `http://localhost:8080/TogetherTicket`.
+
+---
+
+### Dettagli principali delle cartelle:
+
+- **controller**: Contiene le servlet Java che gestiscono le richieste HTTP e le risposte.
+- **model**: Contiene le classi modello, come `Evento`, `User` e `Group`, che rappresentano le entità nel database.
+- **util**: Include classi utili per la gestione della connessione al database e altre operazioni generali.
+- **webapp**: Contiene tutti i file web, come le pagine HTML, i fogli di stile CSS e gli script JavaScript.
+
+---
+
+## Come utilizzare TogetherTicket
+
+### Registrazione e login
+
+- Vai alla pagina di **login** per accedere al sistema se hai già un account.
+- Se sei un nuovo utente, vai alla pagina di **registrazione** per creare un nuovo account. Una volta registrato, sarai automaticamente loggato.
+
+### Visualizzazione eventi
+
+- Dopo il login, la homepage mostrerà una lista di eventi disponibili, ciascuno con i dettagli (data, luogo, descrizione e prezzo) e, se desideri, puoi acquistare un biglietto.
+
+### Creazione e gestione gruppi
+
+- Ogni evento ha la possibilità di creare un gruppo dopo l'acquisto del relativo biglietto
+- Dopo aver creato un gruppo, dovrai unirti allo stesso o eventualmente unirti a un gruppo esistente
+
+### Bacheca del gruppo
+
+- Ogni gruppo creato ha una **bacheca** in cui i membri possono fissare dei messaggi particolarmente importanti.
+
+
+

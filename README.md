@@ -19,8 +19,8 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 
 - **Java Development Kit (JDK) 11 o superiore**: Assicurati di avere Java installato. Puoi scaricarlo da [qui](https://www.oracle.com/java/technologies/downloads/#jdk23-windows).
 - **MySQL**: Per la gestione del database. Puoi scaricarlo da [qui](https://dev.mysql.com/downloads/installer/).
+- **Git**: Per usare il comando git nel prompt dei comandi. Puoi scaricarlo [qui](https://git-scm.com/downloads/win)
 - **Eclipse IDE**: Un IDE per lo sviluppo Java. Puoi scaricarlo da [qui](https://www.eclipse.org/downloads/packages/)
-- **Maven**: Se non e' gia' presente in Eclipse di default puoi installarlo da [qui](https://maven.apache.org/download.cgi).
 
 ## Configurazione del progetto
 

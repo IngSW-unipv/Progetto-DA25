@@ -35,7 +35,7 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
    git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
 3. **Configura il database**:
-   - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql` e poi `InsertData.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
+   - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql`, poi `InsertData.sql`, poi `AggiungiRuolo.sql` e infine `ImpostaAdmin.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
 
 4. **Importa il progetto in Eclipse**:
    - Apri Eclipse e seleziona `File > Import > Existing Maven Projects`.

@@ -2,24 +2,14 @@
 
 **TogetherTicket** è un'applicazione web che consente agli utenti di acquistare biglietti per eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
 
-## Funzionalità principali
-**Utenti**:
-- **Registrazione e login**: Gli utenti possono creare un account e accedere al sistema.
-- **Visualizzazione eventi**: Gli utenti possono visualizzare gli eventi disponibili e acquistare biglietti.
-- **Creazione e gestione gruppi**: Gli utenti possono creare nuovi gruppi per un evento o unirsi a gruppi esistenti.
-- **Chat di gruppo**: Ogni gruppo ha una chat in cui i membri possono comunicare.
-- **Bacheca personale**: Ogni utente ha accesso alla propria bacheca, dove può vedere i gruppi a cui partecipa e interagire con essi.
+## Tecnologie Utilizzate
 
-**Admin**:
-- **Login**: Gli admin possono accedere attraverso le credenziali fornite dagli sviluppatori.
-- **Aggiunta/Rimozione Evento**: Gli admin possono creare nuovi eventi nel sistema e togliere eventi ormai passati
+![Frontend](https://img.shields.io/badge/Frontend-HTML-E34F26?style=for-the-badge&logoColor=white)  ![Java](https://img.shields.io/badge/Backend-Java-007396?style=for-the-badge&logo=java&logoColor=white)   ![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)  ![Eclipse](https://img.shields.io/badge/IDE-Eclipse-2C2255?style=for-the-badge&logo=eclipseide&logoColor=white)  
 
 
 
-## Tecnologie utilizzate
-
-- **Java**: Backend per la gestione delle operazioni, come l'autenticazione, la gestione degli eventi e dei gruppi.
 - **HTML/CSS**: Frontend per l'interfaccia utente.
+- **Java**: Backend per la gestione delle operazioni, come l'autenticazione, la gestione degli eventi e dei gruppi.
 - **MySQL**: Database per la memorizzazione di utenti, eventi, gruppi e chat.
 - **Eclipse**: IDE utilizzato per lo sviluppo del progetto.
 

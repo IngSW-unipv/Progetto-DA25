@@ -41,6 +41,12 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 5. **Configurazione del server Apache Tomcat**:
    - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat.
    - Se non e' presenta scaricalo [qui](https://tomcat.apache.org/download-11.cgi).
+  
+6. **Associa il runtime al tuo progetto**:
+   -Clicca con il tasto destro sul progetto e seleziona Properties.
+   -Vai su Target Runtime.
+   -Seleziona il runtime di Apache Tomcat appena aggiunto.
+   -Clicca su Apply and Close.
 
 6. **Avvio dell'applicazione**:
    - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run as > Run on Server`

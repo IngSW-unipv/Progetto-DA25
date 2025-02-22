@@ -25,10 +25,16 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 ## Configurazione del progetto
 
 1. **Clona il repository**:
+   Naviga nella cartella dove vuoi clonare il repository: Usa il comando cd per spostarti nella directory desiderata.
+   Ad esempio:
+   ```bash
+   cd /percorso/della/cartella
+   ```
+   E poi il comando
    ```bash
    git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
-2. **Configura il database**:
+3. **Configura il database**:
    - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql` e poi `InsertData.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
 
 4. **Importa il progetto in Eclipse**:

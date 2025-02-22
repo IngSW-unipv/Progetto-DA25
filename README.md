@@ -41,6 +41,7 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
    - Apri Eclipse e seleziona `File > Import > Existing Maven Projects`.
    - Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
    - Eclipse importerà automaticamente il progetto e le dipendenze tramite Maven.
+   - Nel caso avesse un nome differente, rinominare il progetto su eclipse come TogetherTicket
 
 5. **Configurazione del server Apache Tomcat**:
    - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat.

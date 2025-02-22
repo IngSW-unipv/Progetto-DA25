@@ -17,39 +17,33 @@
 
 Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 
+- **Git**: Per usare il comando git nel prompt dei comandi. Puoi scaricarlo [qui](https://git-scm.com/downloads/win)
 - **Java Development Kit (JDK) 11 o superiore**: Assicurati di avere Java installato. Puoi scaricarlo da [qui](https://www.oracle.com/java/technologies/downloads/#jdk23-windows).
 - **MySQL**: Per la gestione del database. Puoi scaricarlo da [qui](https://dev.mysql.com/downloads/installer/).
-- **Git**: Per usare il comando git nel prompt dei comandi. Puoi scaricarlo [qui](https://git-scm.com/downloads/win)
 - **Eclipse IDE**: Un IDE per lo sviluppo Java. Puoi scaricarlo da [qui](https://www.eclipse.org/downloads/packages/)
 
 ## Configurazione del progetto
 
-1. **Clona il repository**:
-   Naviga nella cartella dove vuoi clonare il repository: Usa il comando cd per spostarti nella directory desiderata.
-   Ad esempio:
-   ```bash
-   cd /percorso/della/cartella
-   ```
-   E poi il comando
+1. **Clona il repository**: Nel prompt dei comandi digita:
+
    ```bash
    git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
 3. **Configura il database**:
-   - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql`, poi `InsertData.sql`, poi `AggiungiRuolo.sql` e infine `ImpostaAdmin.sql` Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
+   - Si eseguano in ordine i due script sql presenti nella cartella Database, prima `CreaDatabase.sql` e poi `InsertData.sql`. Questi file contengono le tabelle necessarie per la gestione degli utenti, eventi, gruppi e bacheca.
 
 4. **Importa il progetto in Eclipse**:
    - Apri Eclipse e seleziona `File > Import > Existing Maven Projects`.
    - Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
    - Eclipse importerà automaticamente il progetto e le dipendenze tramite Maven.
-   - Nel caso avesse un nome differente, rinominare il progetto su eclipse come TogetherTicket
+   - Nel caso avesse un nome differente, rinominare il progetto su eclipse come **TogetherTicket**
 
 5. **Configurazione del server Apache Tomcat**:
    - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat.
    - Se non e' presenta scaricalo [qui](https://tomcat.apache.org/download-11.cgi).
-   - Dopo aver aggiunto Tomcat, clicca su `Run > Run on Server` per eseguire l'applicazione.
 
 6. **Avvio dell'applicazione**:
-   - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run`.
+   - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run as > Run on Server`
    - Accedi all'applicazione nel browser visitando `http://localhost:8080/TogetherTicket`.
 
 ---

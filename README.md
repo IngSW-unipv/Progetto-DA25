@@ -43,12 +43,12 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
    - Se non e' presenta scaricalo [qui](https://tomcat.apache.org/download-11.cgi).
   
 6. **Associa il runtime al tuo progetto**:
-   -Clicca con il tasto destro sul progetto e seleziona Properties.
-   -Vai su Target Runtime.
-   -Seleziona il runtime di Apache Tomcat appena aggiunto.
-   -Clicca su Apply and Close.
-
-6. **Avvio dell'applicazione**:
+   - Clicca con il tasto destro sul progetto e seleziona Properties.
+   - Vai su Target Runtime.
+   - Seleziona il runtime di Apache Tomcat appena aggiunto.
+   - Clicca su Apply and Close.
+  
+7. **Avvio dell'applicazione**:
    - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run as > Run on Server`
    - Accedi all'applicazione nel browser visitando `http://localhost:8080/TogetherTicket`.
 

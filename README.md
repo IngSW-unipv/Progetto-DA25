@@ -47,7 +47,8 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
    - Eclipse importerà automaticamente il progetto e le dipendenze tramite Maven.
 
 5. **Configurazione del server Apache Tomcat**:
-   - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat (versione 9 o successiva).
+   - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat.
+   - Se non e' presenta scaricalo [qui](https://tomcat.apache.org/download-11.cgi).
    - Dopo aver aggiunto Tomcat, clicca su `Run > Run on Server` per eseguire l'applicazione.
 
 6. **Avvio dell'applicazione**:

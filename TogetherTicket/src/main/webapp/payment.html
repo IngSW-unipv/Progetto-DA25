@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento - TogetherTicket</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="TogetherTicket Logo" class="logo">
+    <h1>TogetherTicket</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Eventi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Pagamento per l'evento: <span id="evento-nome"></span></h2>
+    
+    <!-- Modulo per la carta di credito -->
+    <form id="payment-form">
+      <label for="card-number">Numero carta di credito:</label>
+      <input type="text" id="card-number" name="card-number" placeholder="1234-5678-9101-1121" required maxlength="19"><br><br>
+
+      <label for="expiry-date">Data di scadenza:</label>
+      <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/AA" required maxlength="5"><br><br>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" placeholder="123" required maxlength="3"><br><br>
+
+      <!-- Sezione dati dell'intestatario -->
+      <h3>Dati Intestatario del Biglietto</h3>
+      <label for="intestatario-nome">Nome:</label>
+      <input type="text" id="intestatario-nome" name="intestatario-nome" required><br><br>
+
+      <label for="intestatario-cognome">Cognome:</label>
+      <input type="text" id="intestatario-cognome" name="intestatario-cognome" required><br><br>
+
+      <label for="intestatario-email">Email:</label>
+      <input type="email" id="intestatario-email" name="intestatario-email" required><br><br>
+
+      <button type="submit" id="acquista-btn">Acquista il biglietto</button>
+    </form>
+
+    <!-- Sezione dopo l'acquisto -->
+    <div id="after-purchase" style="display: none;">
+      <p>Biglietto acquistato con successo!</p>
+      <button onclick="creaGruppo()">Crea un nuovo gruppo</button>
+      <button onclick="uniscitiGruppo()">Unisciti a un gruppo esistente</button>
+    </div>
+
+    <button onclick="window.location.href='events.html'" class="home-button">Torna alla pagina eventi</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TogetherTicket. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    // Funzione per ottenere il parametro "evento_id" dalla URL
+    function getEventoId() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("evento_id") || "Evento Sconosciuto";
+    }
+
+    // Mostra il nome (o ID) dell'evento nella pagina
+    const eventoId = getEventoId();
+    document.getElementById("evento-nome").textContent = eventoId;
+
+    // Gestione del form di pagamento (formattazione e validazione)
+    document.addEventListener("DOMContentLoaded", function () {
+      const cardNumberInput = document.getElementById("card-number");
+      const expiryDateInput = document.getElementById("expiry-date");
+      const cvvInput = document.getElementById("cvv");
+
+      // Formatta il numero di carta di credito come xxxx-xxxx-xxxx-xxxx
+      cardNumberInput.addEventListener("input", function (e) {
+          let value = e.target.value.replace(/\D/g, ""); // Rimuove tutti i caratteri non numerici
+          value = value.replace(/(\d{4})(?=\d)/g, "$1-"); // Aggiunge il trattino ogni 4 cifre
+          e.target.value = value.substring(0, 19); // Limita la lunghezza massima
+      });
+
+      // Formatta la data di scadenza come MM/AA
+      expiryDateInput.addEventListener("input", function (e) {
+          let value = e.target.value.replace(/\D/g, ""); // Rimuove i caratteri non numerici
+          if (value.length > 2) {
+              value = value.substring(0, 2) + "/" + value.substring(2, 4);
+          }
+          e.target.value = value.substring(0, 5); // Limita la lunghezza massima
+      });
+
+      // Permetti solo numeri nel CVV
+      cvvInput.addEventListener("input", function (e) {
+          e.target.value = e.target.value.replace(/\D/g, "").substring(0, 3);
+      });
+
+      // Simulazione di un acquisto
+      document.getElementById("payment-form").addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const cardNumber = cardNumberInput.value;
+          const expiryDate = expiryDateInput.value;
+          const cvv = cvvInput.value;
+          const nomeIntestatario = document.getElementById("intestatario-nome").value;
+          const cognomeIntestatario = document.getElementById("intestatario-cognome").value;
+          const emailIntestatario = document.getElementById("intestatario-email").value;
+
+          // Verifica formati minimi
+          const cardRegex = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+          const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+          const cvvRegex = /^\d{3}$/;
+
+          if (!cardRegex.test(cardNumber)) {
+              alert("Numero di carta non valido! Usa il formato XXXX-XXXX-XXXX-XXXX.");
+              return;
+          }
+          if (!expiryRegex.test(expiryDate)) {
+              alert("Data di scadenza non valida! Usa il formato MM/AA.");
+              return;
+          }
+          if (!cvvRegex.test(cvv)) {
+              alert("CVV non valido! Deve essere di 3 cifre.");
+              return;
+          }
+          if (!nomeIntestatario || !cognomeIntestatario || !emailIntestatario) {
+              alert("Compila tutti i campi dell'intestatario.");
+              return;
+          }
+
+          // Simula l'acquisto
+          alert("Acquisto completato con successo!");
+          document.getElementById("payment-form").style.display = "none";
+          document.getElementById("after-purchase").style.display = "block";
+      });
+    });
+
+    // Funzioni per creare o unirsi a un gruppo, usando l'evento dinamico
+    function creaGruppo() {
+      const evento = getEventoId();
+      window.location.href = `groups.html?evento_id=${encodeURIComponent(evento)}`;
+    }
+    
+    function uniscitiGruppo() {
+      const evento = getEventoId();
+      window.location.href = `join_group.html?evento_id=${encodeURIComponent(evento)}`;
+    }
+  </script>
+</body>
+</html>
+
+
+

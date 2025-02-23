@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unito al Gruppo - TogetherTicket</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="TogetherTicket Logo" class="logo">
+    <h1>TogetherTicket</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Congratulazioni!</h2>
+    <p>Ti sei unito con successo al gruppo!</p>
+    <p>Evento: <span id="eventoInfo"></span></p>
+    <p>Gruppo: <span id="gruppoInfo"></span></p>
+
+    <div class="buttons">
+      <button onclick="window.location.href='my_groups.html'" class="groups-button">I miei gruppi</button>
+    </div>
+  </main>
+
+  <footer>
+        <button onclick="window.location.href='events.html'" class="home-button">Torna alla Home</button>
+    <p>&copy; 2025 TogetherTicket. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script>
+    // Leggi i parametri dalla URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventoId = urlParams.get("eventoId");
+    const gruppoId = urlParams.get("gruppoId");
+
+    // Visualizza i parametri
+    document.getElementById("eventoInfo").textContent = eventoId;
+    document.getElementById("gruppoInfo").textContent = gruppoId;
+  </script>
+</body>
+</html>
+
+

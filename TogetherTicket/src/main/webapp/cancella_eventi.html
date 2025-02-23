@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestisci Eventi - TogetherTicket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="TogetherTicket Logo" class="logo">
+        <h1>Gestisci Eventi</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Aggiungi Eventi</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Eventi esistenti</h2>
+        <div id="event-list">
+            <!-- Gli eventi saranno caricati dinamicamente qui -->
+        </div>
+        <button onclick="window.location.href='admin.html'" class="home-button">Torna ad Aggiungere Eventi</button>
+    </main>
+    <footer>
+        <p>&copy; 2025 TogetherTicket. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        // Funzione per caricare gli eventi tramite il servlet
+        fetch('http://localhost:8080/TogetherTicket/eventi')
+            .then(response => response.json())
+            .then(data => {
+                const eventListContainer = document.getElementById('event-list');
+                if (data && Array.isArray(data)) {
+                    data.forEach(event => {
+                        const eventElement = document.createElement('div');
+                        eventElement.classList.add('event');
+                        eventElement.innerHTML = `
+                            <p><strong>Nome:</strong> ${event.nome}</p>
+                            <p><strong>Descrizione:</strong> ${event.descrizione}</p>
+                            <p><strong>Data:</strong> ${event.dataEvento}</p>
+                            <p><strong>Luogo:</strong> ${event.luogo}</p>
+                            <p><strong>Prezzo:</strong> ${event.prezzo}€</p>
+                            <button onclick="deleteEvent('${event.nome}')">Rimuovi Evento</button>
+                        `;
+                        eventListContainer.appendChild(eventElement);
+                    });
+                } else {
+                    eventListContainer.innerHTML = 'Nessun evento trovato.';
+                }
+            })
+            .catch(error => {
+                console.error('Errore nel recupero degli eventi:', error);
+            });
+
+        // Funzione per rimuovere l'evento
+        function deleteEvent(eventName) {
+            const confirmDelete = confirm(`Sei sicuro di voler rimuovere l'evento "${eventName}"?`);
+            if (confirmDelete) {
+                fetch(`http://localhost:8080/TogetherTicket/DeleteEventServlet?event_name=${eventName}`, { method: 'DELETE' })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Evento rimosso con successo');
+                            location.reload(); // Ricarica la pagina per vedere la lista aggiornata
+                        } else {
+                            alert('Errore nel rimuovere l\'evento');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Errore nella rimozione dell\'evento:', error);
+                    });
+            }
+        }
+    </script>
+</body>
+</html>
+

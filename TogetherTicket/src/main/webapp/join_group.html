@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unisciti a un Gruppo - TogetherTicket</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="TogetherTicket Logo" class="logo">
+    <h1>TogetherTicket</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Eventi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Unisciti a un Gruppo</h2>
+
+    <!-- Form per unirsi a un gruppo -->
+    <form action="JoinGroupServlet" method="POST">
+      <label for="eventoId">Scegli Evento:</label>
+      <input type="text" id="eventoId" name="eventoId" readonly><br><br>
+
+      <label for="group">Scegli Gruppo:</label>
+      <select id="group" name="group" required>
+        <!-- Verranno caricati i gruppi disponibili per l'evento selezionato -->
+      </select><br><br>
+
+      <button type="submit">Unisciti al Gruppo</button>
+    </form>
+
+    <button onclick="window.location.href='events.html'" class="home-button">Torna alla Home</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TogetherTicket. Tutti i diritti riservati.</p>
+    <nav>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Contatti</a></li>
+        <li><a href="#">Termini</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+    // Leggi il parametro "evento_id" dalla URL (es. ?evento_id=Concerto%20Rock)
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventoNome = urlParams.get("evento_id");
+
+    if (eventoNome) {
+      // Imposta il nome dell'evento nel campo di input (solo lettura)
+      document.getElementById("eventoId").value = eventoNome;
+
+      // Recupera i gruppi disponibili per l'evento selezionato
+      fetch(`GetGroupsServlet?evento_id=${eventoNome}`)
+        .then(response => response.json())
+        .then(groups => {
+          const selectElement = document.getElementById("group");
+
+          if (groups.length > 0) {
+            // Aggiungi ogni gruppo come opzione
+            groups.forEach(group => {
+              const option = document.createElement("option");
+              option.value = group.id;  // ID del gruppo
+              option.textContent = group.nomeGruppo;  // Nome del gruppo
+              selectElement.appendChild(option);
+            });
+          } else {
+            // Se non ci sono gruppi, mostra un messaggio
+            const option = document.createElement("option");
+            option.disabled = true;
+            option.textContent = "Nessun gruppo disponibile per questo evento";
+            selectElement.appendChild(option);
+          }
+        })
+        .catch(error => {
+          console.error("Errore nel recupero dei gruppi:", error);
+        });
+    } else {
+      alert("Nessun evento selezionato. Torna alla pagina degli eventi.");
+      window.location.href = "events.html";
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+

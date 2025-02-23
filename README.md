@@ -37,18 +37,21 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
    - Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
    - Eclipse importerà automaticamente il progetto e le dipendenze tramite Maven.
    - Se avesse un nome differente, rinominare il progetto su eclipse come **TogetherTicket**: tasto destro sul progetto, `Refactor > Rename`
+  
+5. **Cambia password di MySQL**:
+   - Apri `DatabaseConnection.java` e cambia la password nello script con quella del tuo MySQL.
 
-5. **Configurazione del server Apache Tomcat**:
+6. **Configurazione del server Apache Tomcat**:
    - Se non hai già Apache Tomcat configurato in Eclipse, vai su `Window > Preferences > Server > Runtime Environments` e aggiungi un server Tomcat.
    - Se non e' presente scaricalo [qui](https://tomcat.apache.org/download-11.cgi).
   
-6. **Associa il runtime al tuo progetto**:
+7. **Associa il runtime al tuo progetto**:
    - Clicca con il tasto destro sul progetto e seleziona Properties.
    - Vai su Target Runtime.
    - Seleziona il runtime di Apache Tomcat appena aggiunto.
    - Clicca su Apply and Close.
   
-7. **Avvio dell'applicazione**:
+8. **Avvio dell'applicazione**:
    - Avvia il server Tomcat direttamente da Eclipse cliccando su `Run as > Run on Server`
    - Accedi all'applicazione nel browser visitando `http://localhost:8080/TogetherTicket`.
 

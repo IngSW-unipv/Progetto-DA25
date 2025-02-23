@@ -9,7 +9,7 @@
 
 
 - **HTML/CSS**: Frontend per l'interfaccia utente.
-- **Java**: Backend per la gestione delle operazioni, come l'autenticazione, la gestione degli eventi e dei gruppi.
+- **Java**: Backend per la gestione delle operazioni, come l'autenticazione, la gestione degli eventi e delle bachece.
 - **MySQL**: Database per la memorizzazione di utenti, eventi, gruppi e chat.
 - **Eclipse**: IDE utilizzato per lo sviluppo del progetto.
 

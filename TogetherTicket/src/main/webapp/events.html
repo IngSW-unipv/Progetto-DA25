@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi - TogetherTicket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="TogetherTicket Logo" class="logo">
+        <h1>TogetherTicket</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="my_groups.html">I miei gruppi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Seleziona un evento</h2>
+
+        <!-- Dropdown per gli eventi -->
+        <select id="eventi-dropdown">
+            <option value="">Caricamento eventi...</option>
+        </select>
+
+        <!-- Pulsante per continuare -->
+        <button id="continua-btn" disabled>Continua</button>
+
+        <script>
+    // Carica gli eventi dal servlet
+    fetch("/TogetherTicket/eventi")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Errore nel recupero degli eventi, status: " + response.status);
+            }
+            return response.json();
+        })
+        .then(eventi => {
+            console.log("Eventi ricevuti:", eventi);
+            const eventiDropdown = document.getElementById("eventi-dropdown");
+
+            // Rimuove l'opzione di caricamento
+            eventiDropdown.innerHTML = '';
+
+            if (eventi.length === 0) {
+                const option = document.createElement("option");
+                option.textContent = "Nessun evento disponibile.";
+                eventiDropdown.appendChild(option);
+            } else {
+                // Aggiunge ogni evento come opzione nel dropdown, includendo il luogo
+                eventi.forEach(evento => {
+                    const option = document.createElement("option");
+                    // Usa un valore univoco (qui evento.nome, che dai dati è valorizzato)
+                    option.value = evento.nome;
+                    // Imposta il testo che include nome, data, luogo e prezzo
+                    const prezzo = evento.prezzo !== undefined ? evento.prezzo : "N/A";
+                    option.textContent = `${evento.nome} - ${evento.dataEvento} - Luogo: ${evento.luogo} - Prezzo: ${prezzo}€`;
+                    eventiDropdown.appendChild(option);
+                });
+            }
+            
+            // Forza l'aggiornamento dello stato del bottone "Continua"
+            eventiDropdown.dispatchEvent(new Event("change"));
+        })
+        .catch(error => {
+            console.error('Errore nel recupero degli eventi:', error);
+        });
+
+    // Abilita il bottone quando un evento viene selezionato
+    document.getElementById("eventi-dropdown").addEventListener("change", function() {
+        console.log("Evento selezionato:", this.value);
+        const continuaBtn = document.getElementById("continua-btn");
+        // Abilita il bottone se il valore non è vuoto
+        continuaBtn.disabled = this.value === "";
+    });
+
+    // Reindirizza alla pagina di pagamento passando l'evento selezionato
+    document.getElementById("continua-btn").addEventListener("click", function() {
+        const selectedEvent = document.getElementById("eventi-dropdown").value;
+        if (selectedEvent) {
+            window.location.href = "payment.html?evento_id=" + encodeURIComponent(selectedEvent);
+        } else {
+            alert("Seleziona un evento.");
+        }
+    });
+</script>
+
+        <button onclick="window.location.href='index.html'" class="home-button">Torna alla Home</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TogetherTicket. Tutti i diritti riservati.</p>
+        <nav>
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Contatti</a></li>
+                <li><a href="#">Termini</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+
+
+

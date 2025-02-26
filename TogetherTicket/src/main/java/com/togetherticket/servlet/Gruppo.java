@@ -1,16 +1,21 @@
 package com.togetherticket.servlet;
 
-public class Gruppo {
-    private int id;
-    private String nomeGruppo;
+//Classe che rappresenta un gruppo all'interno del sistema TogetherTicket.
 
-    // Costruttore
+public class Gruppo {
+    // Identificativo univoco del gruppo nel database
+    private int id;  
+    
+    // Nome del gruppo creato dagli utenti
+    private String nomeGruppo;  
+
+    //Costruttore della classe Gruppo.
     public Gruppo(int id, String nomeGruppo) {
         this.id = id;
         this.nomeGruppo = nomeGruppo;
     }
 
-    // Getter e Setter
+    // Metodi Getter e Setter
     public int getId() {
         return id;
     }

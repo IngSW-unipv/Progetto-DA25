@@ -13,20 +13,24 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/DeleteEventServlet")
 public class DeleteEventServlet extends HttpServlet {
 
-    @Override
+    @Override  //Override per utilizzare il metodo doDelete della classe HttpServlet
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //Recupero il nome dell'evento da rimuovere(quello su cui ho premuto rimuovi evento)
         String eventName = request.getParameter("event_name");
 
+        //if per gestire il caso in cui non dovessi avere un nome per l'evento o fosse una stringa vuota
         if (eventName == null || eventName.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().write("{\"error\": \"Nome evento non valido\"}");
             return;
         }
 
+        //la servlet stabilisce la connessione al database sql tramite il metodo .getConnection proprio della classe DatabaseConnection
         try (Connection conn = DatabaseConnection.getConnection()) {
-            conn.setAutoCommit(false); // Inizio transazione
+            conn.setAutoCommit(false); // Inizio transazione  //disabilito il commit automatico perche' stiamo eseguendo piu' operazioni di scrittura(cancellazione membri, poi gruppi e infine evento) e vogliamo 
+            //che tutte vengano eseguite correttamente prima di confermare i cambiamenti nel database
 
             // Step 1: Ottenere l'ID dell'evento
             String getEventIdQuery = "SELECT id FROM Eventi WHERE nome = ?";

@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/GetGroupsServlet")
+@WebServlet("/GetGroupsServlet")            //serve a visualizzare i gruppi esistenti nel database nella pagina di unione a un gruppo
 public class GetGroupsServlet extends HttpServlet {
 
     @Override

@@ -1,13 +1,16 @@
 package com.togetherticket.servlet;
+//Classe che rappresenta un evento nel sistema TogetherTicket. Contiene informazioni come nome, descrizione, data, luogo e prezzo.
 
 public class Evento {
-    private String nome;
-    private String descrizione;
-    private String dataEvento;
-    private String luogo;
-    private double prezzo;  
+    
+    // Attributi dell'evento
+    private String nome;        // Nome dell'evento
+    private String descrizione; // Descrizione dell'evento
+    private String dataEvento;  // Data dell'evento in formato String
+    private String luogo;       // Luogo dell'evento
+    private double prezzo;      // Prezzo dell'evento
 
-    // Costruttore
+    // Costruttore della classe evento
     public Evento(String nome, String descrizione, String dataEvento, String luogo, double prezzo) {
         this.nome = nome;
         this.descrizione = descrizione;
@@ -16,7 +19,7 @@ public class Evento {
         this.prezzo = prezzo;
     }
 
-    // Getter e setter
+    // Metodi getter e setter per accedere e modificare gli attributi della classe
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 

@@ -1,4 +1,8 @@
-# TogetherTicket
+<div style="display: flex; align-items: center;">
+  <img src="images/logo.png" width="180" style="margin-right: 10px;">
+  <h1 style="font-size: 36px; font-weight: bold; margin: 0;">TogetherTicket</h1>
+</div>
+
 
 **TogetherTicket** è un'applicazione web che consente agli utenti di acquistare biglietti per eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
 
@@ -91,6 +95,4 @@ ADMIN   username: gloria    password: gloria   UTENTE   username: annaBianchi   
 ### Bacheca del gruppo
 
 - Ogni gruppo creato ha una **bacheca** in cui i membri possono fissare dei messaggi particolarmente importanti.
-
-
 

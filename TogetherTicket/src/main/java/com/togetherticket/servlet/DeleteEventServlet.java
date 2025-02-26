@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+//Servlet per la rimozione di un evento dal database. Gestisce le richieste DELETE per eliminare un evento e le sue relazioni.
+    
 @WebServlet("/DeleteEventServlet")
 public class DeleteEventServlet extends HttpServlet {
 

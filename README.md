@@ -74,9 +74,9 @@ Per eseguire questo progetto sul proprio dispositivo, è necessario avere:
 - Se sei un nuovo utente, vai alla pagina di **registrazione** per creare un nuovo account. Una volta registrato, sarai automaticamente loggato.
 - Esempi di credenziali:
 ```bash
-           username: fede      password: fede                      username: marioRossi    password: password123
-ADMIN      username: gloria    password: gloria     UTENTE         username: annaBianchi   password: securepass
-           username: diane     password: diane                     username: lucaVerdi     password: mypassword
+         username: fede      password: fede                 username: marioRossi    password: password123
+ADMIN    username: gloria    password: gloria     UTENTE    username: annaBianchi   password: securepass
+         username: diane     password: diane                username: lucaVerdi     password: mypassword
 ```
 
 ### Visualizzazione eventi

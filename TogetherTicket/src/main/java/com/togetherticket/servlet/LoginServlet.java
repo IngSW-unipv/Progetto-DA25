@@ -1,5 +1,7 @@
 package com.togetherticket.servlet;
 
+//servlet per il corretto funzionamento del login sul sito web, dividendo login per utenti e login per admin
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +18,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //recupero i parametri nel form HTML
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 

@@ -1,5 +1,7 @@
 package com.togetherticket.servlet;
 
+//Servlet per il corretto funzionamento della registrazione sul sito
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +20,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //Recupero i parametri compilati nel form HTML da inserire all'interno del database
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -51,7 +54,7 @@ public class RegisterServlet extends HttpServlet {
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, username);
                 stmt.setString(2, email);
-                stmt.setString(3, password); // Ricorda: per maggiore sicurezza usare un hash della password
+                stmt.setString(3, password); 
                 stmt.setString(4, nome);
                 stmt.setString(5, cognome);
 

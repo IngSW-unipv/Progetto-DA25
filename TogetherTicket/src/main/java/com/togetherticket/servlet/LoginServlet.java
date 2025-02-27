@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             statement.setString(2, password);  // Qui dovresti usare una versione sicura della password, come bcrypt
             
             ResultSet resultSet = statement.executeQuery();
-            System.out.println("Username: " + username);
+            System.out.println("Username: " + username);  //li mostro sulla console solo per comodita' e per vedere l'utente loggato in questo momento
             System.out.println("Password: " + password);
 
             if (resultSet.next()) {

@@ -17,12 +17,13 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/bacheca")
 public class BachecaServlet extends HttpServlet {
 
+    // Metodo per gestire le richieste HTTP GET (recupera i messaggi della bacheca)
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json"); // Imposta la risposta come JSON
+        response.setCharacterEncoding("UTF-8"); // Imposta la codifica dei caratteri
 
         // Recupera l'ID del gruppo dalla query string dell'URL
         int gruppoId;
@@ -43,9 +44,10 @@ public class BachecaServlet extends HttpServlet {
             return;
         }
 
-        List<Bacheca> messaggi = new ArrayList<>();
+        List<Bacheca> messaggi = new ArrayList<>();   // Lista per memorizzare i messaggi della bacheca
 
         try (Connection conn = DatabaseConnection.getConnection()) {
+            // Query per recuperare i messaggi della bacheca di un gruppo specifico
             String query = "SELECT B.utente_id, U.username, B.messaggio, B.data_pubblicazione "
                          + "FROM Bacheca B "
                          + "JOIN Utenti U ON B.utente_id = U.id "
@@ -68,7 +70,7 @@ public class BachecaServlet extends HttpServlet {
                 }
             }
 
-            // Restituisci la lista dei messaggi come JSON
+            // Converte la lista di messaggi in formato JSON e la invia al client
             String json = new Gson().toJson(messaggi);
             response.getWriter().write(json);
 
@@ -79,6 +81,7 @@ public class BachecaServlet extends HttpServlet {
         }
     }
 
+    // Metodo per gestire le richieste HTTP POST (inserisce un nuovo messaggio nella bacheca)
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -113,10 +116,12 @@ public class BachecaServlet extends HttpServlet {
             return;
         }
 
+        // Formatta la data di pubblicazione
         String dataPubblicazione = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                 .format(new java.util.Date());
 
         try (Connection conn = DatabaseConnection.getConnection()) {
+            // Query per inserire un nuovo messaggio nella bacheca
             String query = "INSERT INTO Bacheca (gruppo_id, utente_id, messaggio, data_pubblicazione) VALUES (?, ?, ?, ?)";
 
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -125,7 +130,7 @@ public class BachecaServlet extends HttpServlet {
                 stmt.setString(3, messaggio);
                 stmt.setString(4, dataPubblicazione);
 
-                int rowsAffected = stmt.executeUpdate();
+                int rowsAffected = stmt.executeUpdate();  // Esegue l'inserimento
                 if (rowsAffected > 0) {
                     response.setStatus(HttpServletResponse.SC_OK);
                     response.getWriter().write("{\"message\": \"Messaggio aggiunto con successo\"}");

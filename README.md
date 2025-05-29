@@ -3,8 +3,7 @@
   <h1 style="font-size: 36px; font-weight: bold; margin: 0;">TogetherTicket</h1>
 </div>
 
-**TogetherTicket** è un'applicazione desktop sviluppata in **Java con Swing**.  
-Consente agli utenti di accedere, visualizzare eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
+**TogetherTicket** è un'applicazione sviluppata in **Java** che consente agli utenti di accedere, visualizzare eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
 
 ---
 

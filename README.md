@@ -4,7 +4,7 @@
 </div>
 
 **TogetherTicket** è un'applicazione desktop sviluppata in **Java con Swing**.  
-Consente agli utenti di registrarsi, accedere, visualizzare eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
+Consente agli utenti di accedere, visualizzare eventi, creare o unirsi a gruppi e comunicare tramite una bacheca condivisa.
 
 ---
 

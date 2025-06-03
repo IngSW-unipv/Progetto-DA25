@@ -22,7 +22,7 @@
 ## 📂 Struttura del progetto
 
 ```
-TogetherTicket/
+TT/
 ├── application/         # Entry point (MainApp.java)
 ├── controller/          # Gestione del flusso logico e coordinamento tra view e dao
 ├── dao/                 # Accesso ai dati nel database
@@ -48,6 +48,8 @@ TogetherTicket/
 
 ### 1. Clona il repository
 
+Nel Desktop crea una cartella, nel prompt dei comandi con il comando `cd` spostati in tale cartella, esempio `cd C:\Users\Ciao\Desktop\Progetto`. Ora clona il repository in tale cartella con il comando
+
 ```bash
 git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 ```
@@ -56,7 +58,7 @@ git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
 ### 2. Configura il database
 
-- Apri **MySQL Workbench** o qualsiasi altro client SQL.
+- Apri **MySQL Workbench**.
 - Esegui **in ordine** i due script SQL che si trovano nella cartella `Database`:
 
   1) `CreaDatabase.sql` – crea tutte le tabelle necessarie (utenti, eventi, gruppi, bacheca, ecc.)
@@ -68,9 +70,7 @@ git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 
 - Apri Eclipse.
 - Vai su `File > Import > General > Projects from Folder or Archive`.
-- Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
-- Se Eclipse assegna un nome diverso al progetto, rinominalo:
-  - Clic destro sul progetto → `Refactor > Rename` → inserisci `TogetherTicket`.
+- Seleziona la cartella del progetto `TT` che hai clonato.
 
 ---
 

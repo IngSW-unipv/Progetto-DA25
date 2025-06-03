@@ -67,7 +67,7 @@ git clone https://github.com/IngSW-unipv/Progetto-DA25.git
 ### 3. Importa il progetto in Eclipse
 
 - Apri Eclipse.
-- Vai su `File > Import > General > Existing Projects into Workspace`.
+- Vai su `File > Import > General > Projects from Folder or Archive`.
 - Seleziona la cartella del progetto `TogetherTicket` che hai clonato.
 - Se Eclipse assegna un nome diverso al progetto, rinominalo:
   - Clic destro sul progetto → `Refactor > Rename` → inserisci `TogetherTicket`.

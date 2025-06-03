@@ -38,8 +38,8 @@ TT/
 
 ## 🛠️ Requisiti
 
-- **Java JDK 11 o superiore**
-- **MySQL Server**
+- **Java JDK 11 o superiore** (https://www.oracle.com/java/technologies/downloads/#jdk24-windows)
+- **MySQL** (https://dev.mysql.com/downloads/workbench/)
 - **Eclipse IDE** (o un altro IDE Java)
 
 ---

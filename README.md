@@ -36,7 +36,7 @@ TT/
 
 ---
 
-## 🛠️ Requisiti
+## Requisiti
 
 - **Java JDK 11 o superiore** (https://www.oracle.com/java/technologies/downloads/#jdk24-windows)
 - **MySQL** (https://dev.mysql.com/downloads/workbench/)

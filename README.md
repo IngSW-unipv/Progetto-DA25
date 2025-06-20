@@ -19,7 +19,7 @@
 
 ---
 
-## 😃Struttura del progetto
+## Struttura del progetto
 
 ```
 TT/

@@ -44,7 +44,7 @@ TT/
 
 ---
 
-## 🧑‍💻 Avvio del progetto
+## Avvio del progetto
 
 ### 1. Clona il repository
 

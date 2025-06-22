@@ -19,6 +19,11 @@ public class Utente {
         this.username = username; 
     }
 
-    public String getRuolo() { return ruolo; }
-    public void setRuolo(String ruolo) { this.ruolo = ruolo; }
+    public String getRuolo() { 
+        return ruolo; 
+    }
+    
+    public void setRuolo(String ruolo) {
+        this.ruolo = ruolo;
+    }
 }

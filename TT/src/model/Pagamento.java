@@ -14,9 +14,22 @@ public class Pagamento {
     }
 
     // getter e setter
-    public int getUtenteId() { return utenteId; }
-    public int getEventoId() { return eventoId; }
-    public double getImporto() { return importo; }
-    public String getStato() { return stato; }
-    public void setStato(String stato) { this.stato = stato; }
+    public int getUtenteId() { 
+        return utenteId; 
+    }
+    public int getEventoId() { 
+        return eventoId; 
+    }
+    
+    public double getImporto() { 
+        return importo; 
+    }
+    
+    public String getStato() { 
+        return stato; 
+    }
+    
+    public void setStato(String stato) { 
+        this.stato = stato; 
+    }
 }

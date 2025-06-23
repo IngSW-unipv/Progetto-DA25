@@ -30,6 +30,6 @@ public class Pagamento {
     }
     
     public void setStato(String stato) { 
-        this.stato = stato; 
+        this.stato = stato; // modifica lo stato ad esempio dopo un pagamento riuscito
     }
 }

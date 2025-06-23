@@ -10,7 +10,7 @@ public class Pagamento {
         this.utenteId = utenteId;
         this.eventoId = eventoId;
         this.importo = importo;
-        this.stato = "NON_EFFETTUATO";
+        this.stato = "NON_EFFETTUATO";  // imposta lo stato del pagamento iniziale a "NON EFFETUATO"
     }
 
     // getter e setter
